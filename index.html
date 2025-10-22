@@ -1,28 +1,25 @@
 <!doctype html>
 <html lang="fr">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Moulaoui Noa — CV Matrix Style</title>
 
     <!-- Bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      crossorigin="anonymous"
-    />
+      crossorigin="anonymous">
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
     <style>
-      /* ====== GLOBAL ====== */
       :root {
         --matrix-green: #00ff99;
         --matrix-light: #ccffe6;
         --bg-dark: #0a0a0a;
         --bg-card: rgba(0, 20, 10, 0.65);
-        --border-glow: 0 0 10px rgba(0, 255, 153, 0.4);
       }
 
       * {
@@ -35,21 +32,8 @@
         background-image: radial-gradient(circle at 20% 20%, #0b2817 0%, #000 100%);
         overflow-x: hidden;
       }
-      /* Correction de la zone masquée sous la navbar */
-      .spacer-top {
-        height: 6rem; /* espace pour compenser la hauteur de la navbar */
-      }
 
-      /* Sur mobile, on ajoute un peu plus d'espace */
-      @media (max-width: 768px) {
-        .spacer-top {
-          height: 7rem;
-        }
-      }
-
-  
-
-      /* Overlay animé effet binaire */
+      /* Effet binaire */
       canvas#binaryCanvas {
         position: fixed;
         inset: 0;
@@ -59,12 +43,11 @@
         pointer-events: none;
       }
 
-      /* ====== NAVBAR ====== */
+      /* Navbar */
       .navbar {
         background: rgba(0, 0, 0, 0.85);
         backdrop-filter: blur(4px);
         border-bottom: 1px solid rgba(0, 255, 153, 0.3);
-        box-shadow: var(--border-glow);
       }
 
       .navbar-brand span {
@@ -78,25 +61,25 @@
         color: var(--matrix-green);
         transition: all 0.3s ease;
       }
+
       .btn-outline-light:hover {
         background: var(--matrix-green);
         color: #000;
         box-shadow: 0 0 12px var(--matrix-green);
       }
 
-      /* ====== SECTION ====== */
-      main {
-        padding-top: 6.5rem;
-        position: relative;
-        z-index: 1;
+      /* Espace sous navbar */
+      .spacer-top {
+        height: 6rem;
       }
 
-      h1, h5, h6 {
-        color: var(--matrix-green);
-        text-shadow: 0 0 8px rgba(0, 255, 153, 0.3);
+      @media (max-width: 768px) {
+        .spacer-top {
+          height: 7rem;
+        }
       }
 
-      /* ====== CARD ====== */
+      /* Cartes */
       .card {
         background: var(--bg-card);
         border: 1px solid rgba(0, 255, 153, 0.15);
@@ -121,33 +104,20 @@
         color: var(--matrix-green);
       }
 
-      .text-subtle {
-        color: rgba(204, 255, 230, 0.7);
-      }
-
-      /* ====== LINKS ====== */
-      a {
-        color: var(--matrix-green);
-        text-decoration: none;
-        transition: all 0.3s ease;
-      }
-      a:hover {
-        text-shadow: 0 0 8px var(--matrix-green);
-      }
-
-      /* ====== CONTROLS ====== */
+      /* Fenêtre d'options */
       #binaryControls {
         position: fixed;
         right: 12px;
-        z-index: 999;
         top: 84px;
         background: rgba(0, 10, 0, 0.9);
-        border: 1px solid rgba(0, 255, 153, 0.3);
-        padding: 12px 14px;
-        border-radius: 8px;
-        width: 220px;
-        box-shadow: 0 0 8px rgba(0, 255, 153, 0.4);
+        border: 1px solid rgba(0, 255, 153, 0.4);
+        border-radius: 10px;
+        padding: 12px 16px;
+        width: 230px;
+        box-shadow: 0 0 15px rgba(0, 255, 153, 0.5);
+        backdrop-filter: blur(8px);
         display: none;
+        z-index: 9999;
       }
 
       #binaryControls label {
@@ -155,14 +125,25 @@
         font-size: 13px;
       }
 
-      /* ====== SCROLL ====== */
+      a {
+        color: var(--matrix-green);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      a:hover {
+        text-shadow: 0 0 8px var(--matrix-green);
+      }
+
       ::-webkit-scrollbar {
         width: 8px;
       }
+
       ::-webkit-scrollbar-thumb {
         background: var(--matrix-green);
         border-radius: 4px;
       }
+
       ::-webkit-scrollbar-track {
         background: #001a0f;
       }
@@ -172,7 +153,7 @@
   <body>
     <canvas id="binaryCanvas"></canvas>
 
-    <!-- ====== NAVBAR ====== -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center" href="#cv">
@@ -181,16 +162,14 @@
             alt="Photo de profil"
             class="rounded-circle border border-success me-2"
             width="48"
-            height="48"
-          />
+            height="48">
           <span>Moulaoui Noa</span>
         </a>
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
+          data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -198,24 +177,24 @@
             <li><a class="btn btn-sm btn-outline-light" href="#">Portfolio</a></li>
             <li><a class="btn btn-sm btn-outline-light" href="#">LinkedIn</a></li>
             <li><a class="btn btn-sm btn-outline-light" href="https://github.com/Nml8">GitHub</a></li>
-            <li>
-              <button id="openBinaryControls" class="btn btn-sm btn-outline-light">⚙️</button>
-            </li>
+            <li><button id="openBinaryControls" class="btn btn-sm btn-outline-light">⚙️</button></li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <!-- ====== CONTENU ====== -->
+    <!-- Contenu -->
     <main class="container py-5" id="cv">
-      <div class="spacer-top"></div> 
+      <div class="spacer-top"></div>
       <div class="row g-4">
         <div class="col-12">
           <div class="card p-4">
             <h1 class="fw-bold mb-3">Moulaoui Noa</h1>
-            <h6 class="text-subtle">À propos de moi</h6>
+            <h6 class="text-muted">À propos de moi</h6>
             <p>
-              Étudiant en Bac Professionnel Systèmes Numériques option RISC. Je me destine au domaine du réseau et de la cybersécurité, avec l’ambition d’obtenir un BTS SIO puis un Master en alternance.
+              Étudiant en Bac Professionnel Systèmes Numériques option RISC.
+              Je me destine au domaine du réseau et de la cybersécurité, avec
+              l’ambition d’obtenir un BTS SIO puis un Master en alternance.
             </p>
           </div>
         </div>
@@ -223,21 +202,21 @@
         <div class="col-sm-6 col-lg-3">
           <div class="card p-3">
             <h5>Adresse</h5>
-            <p class="text-subtle mb-0">Saint-Étienne (42500)</p>
+            <p class="text-muted mb-0">Saint-Étienne (42500)</p>
           </div>
         </div>
 
         <div class="col-sm-6 col-lg-3">
           <div class="card p-3">
             <h5>Permis</h5>
-            <p class="text-subtle mb-0">Permis B</p>
+            <p class="text-muted mb-0">Permis B</p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-3">
           <div class="card p-3">
             <h5>Langues</h5>
-            <p class="text-subtle mb-0">Français<br />Anglais (niveau B)</p>
+            <p class="text-muted mb-0">Français<br>Anglais (niveau B)</p>
           </div>
         </div>
 
@@ -295,7 +274,7 @@
       </div>
     </main>
 
-    <!-- Contrôles animation -->
+    <!-- Panneau Matrix -->
     <div id="binaryControls">
       <div class="d-flex justify-content-between align-items-center mb-2">
         <strong>Effet Binaire</strong>
@@ -303,19 +282,19 @@
       </div>
       <div class="mb-2">
         <label for="density">Densité</label>
-        <input id="density" type="range" min="0.2" max="3" step="0.1" value="1" />
+        <input id="density" type="range" min="0.2" max="3" step="0.1" value="1">
       </div>
       <div class="mb-2">
         <label for="speed">Vitesse</label>
-        <input id="speed" type="range" min="0.2" max="3" step="0.05" value="0.45" />
+        <input id="speed" type="range" min="0.2" max="3" step="0.05" value="0.45">
       </div>
       <div>
         <label for="color">Couleur</label>
-        <input id="color" type="color" value="#00ff99" />
+        <input id="color" type="color" value="#00ff99">
       </div>
     </div>
 
-    <!-- Bootstrap + Script animation -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
@@ -363,10 +342,15 @@
         resize();
         draw();
         window.addEventListener("resize", resize);
+
         document.getElementById("density").oninput = e => { density = +e.target.value; resize(); };
         document.getElementById("speed").oninput = e => { speed = +e.target.value; };
         document.getElementById("color").oninput = e => { color = e.target.value; };
-        document.getElementById("binaryToggle").onclick = () => { enabled = !enabled; document.getElementById("binaryToggle").textContent = enabled ? "Pause" : "Play"; if (enabled) draw(); };
+        document.getElementById("binaryToggle").onclick = () => {
+          enabled = !enabled;
+          document.getElementById("binaryToggle").textContent = enabled ? "Pause" : "Play";
+          if (enabled) draw();
+        };
         document.getElementById("openBinaryControls").onclick = () => {
           const panel = document.getElementById("binaryControls");
           panel.style.display = panel.style.display === "none" ? "block" : "none";
