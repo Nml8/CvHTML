@@ -33,7 +33,7 @@ cd CvHTML
 ```
 
 ## 📝 Auto-évaluation
-Voir fichier [EVALUATION.md](EVALUATION.md)
+Voir fichier [EVALUATION.md](evaluation.md)
 
 ## 📧 Contact
 **GitHub :** [@nml8](https://github.com/nml8)
